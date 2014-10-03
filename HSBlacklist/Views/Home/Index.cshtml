@@ -15,7 +15,7 @@
 
 <div class="row">
     <h2>Employee Results</h2>
-    <table class="table">
+    <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <td>Name</td>
@@ -36,7 +36,7 @@
                     <td>@Html.DisplayFor(m => item.Email)</td>
                     <td>@Html.DisplayFor(m => item.Phone)</td>
                     <td>@Html.DisplayFor(m => item.Location)</td>
-                    <td>@Html.ActionLink("View/Edit", "Details", new {employeeToEdit= item.Id})</td>
+                    <td>@Html.ActionLink("View", "Details", new {employeeToEdit= item.Id})</td>
                 </tr>
             }
         </tbody>

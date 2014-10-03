@@ -31,12 +31,21 @@ namespace HSBlacklist.Controllers
                 Phone = "8005551234"
             });
 
+            list.Add(new Employee
+            {
+                Id = 1,
+                Email = "test2@test.com",
+                JobTitle = "HR",
+                Location = "Irving, TX",
+                Name = "Application Test",
+                Phone = "8005551234"
+            });
+
             return list;
         }
 
         public ActionResult Details(int employeeToEdit)
         {
-
             return View(EmployeeList.Where(x => x.Id == employeeToEdit).FirstOrDefault());
         }
     }
