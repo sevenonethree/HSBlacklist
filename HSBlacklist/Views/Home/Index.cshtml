@@ -1,5 +1,6 @@
-﻿@using HSBlacklist.Models.Pocos;
-@model List<Employee>
+﻿@using HSBlacklist.Models;
+@using PagedList.Mvc;
+@model EmployeeSearchViewModel
 
 <link href="Content/bootstrap.css" rel="stylesheet" />
 <link href="Content/Site.css" rel="stylesheet" />
@@ -28,7 +29,7 @@
         </thead>
 
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Results)
             {
                 <tr>
                     <td>@Html.DisplayFor(m => item.Name)</td>
@@ -40,5 +41,17 @@
                 </tr>
             }
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    @Html.PagedListPager(Model.Results,
+                        page => Url.Action("Index", new RouteValueDictionary() 
+                            {
+                                {"Page" , page},
+                                
+                            }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+                </td>
+            </tr>
+        </tfoot>
     </table>
 </div>

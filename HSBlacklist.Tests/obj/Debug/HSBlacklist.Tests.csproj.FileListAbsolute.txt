@@ -48,3 +48,7 @@ C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist.Test
 C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist.Tests\obj\Debug\HSBlacklist.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist.Tests\obj\Debug\HSBlacklist.Tests.dll
 C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist.Tests\obj\Debug\HSBlacklist.Tests.pdb
+C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist.Tests\bin\Debug\Ninject.dll
+C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist.Tests\bin\Debug\Ninject.xml
+C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist.Tests\bin\Debug\PagedList.dll
+C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist.Tests\bin\Debug\PagedList.xml
