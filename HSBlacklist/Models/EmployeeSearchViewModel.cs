@@ -11,6 +11,6 @@ namespace HSBlacklist.Models
     {
         public int Page { get; set; }
         public IPagedList<Employee> Results { get;set;}
-        public string SearchButton { get; set; }
+        public string SearchParameters { get; set; }
     }
 }

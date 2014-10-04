@@ -10,42 +10,39 @@ namespace HSBlacklist.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-            : this(new FileDataProcurer<Employee>())
-        { }
+        public static IDataProcurer<Employee> Procurer { get; set; }
+
+        static List<Employee> EmployeeList { get; set; }
 
         public HomeController(IDataProcurer<Employee> procurer)
         {
             Procurer = procurer;
 
         }
-        public static IDataProcurer<Employee> Procurer { get; set; }
-        static List<Employee> EmployeeList { get; set; }
+
         public ActionResult Index(EmployeeSearchViewModel model)
         {
             ViewBag.Title = "Home Page";
             var page = model.Page == 0 ? 1 : model.Page ;
-            EmployeeList = Procurer.GetData().ToList();
+            IEnumerable<Employee> resultData = null;
 
-            if (model.Results == null)
-            {
+            if (!string.IsNullOrEmpty(model.SearchParameters))
+                resultData = Procurer.GetData().Where(x => x.Name.Contains(model.SearchParameters));
+            else
+                resultData = Procurer.GetData();
+
                 model = new EmployeeSearchViewModel()
                 {
-                    Results = Procurer.GetData().ToPagedList(page, 25)
-                    //Results = new PagedList.PagedList<Employee>(Procurer.GetData(), 1, 50)
+                    Results = resultData.ToPagedList(page, 25),
+                    SearchParameters = model.SearchParameters
                 };
-            }
-            //var model = new EmployeeSearchViewModel()
-            //{ 
-            //    Results = new PagedList.PagedList<Employee>(Procurer.GetData(),1,50)
-            //};
 
             return View(model);
         }
 
         public ActionResult Details(int employeeToEdit)
         {
-            return View(EmployeeList.Where(x => x.Id == employeeToEdit).FirstOrDefault());
+            return View(Procurer.Find(x => x.Id == employeeToEdit));
         }
     }
 

@@ -9,8 +9,23 @@
 <div class="jumbotron">
     <h1>Search for an employee</h1>
     <div class="row">
-        <input type="text" id="employeeSearch" />
-        <div class="btn btn-primary">Test</div>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            @Html.ValidationSummary(false)
+            <fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.SearchParameters)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.SearchParameters)
+                    @Html.ValidationMessageFor(m => m.SearchParameters)
+                </div>
+
+                <p>
+                    <input name="SearchButton" type="submit" value="Perform Search" />
+                </p>
+            </fieldset>
+        }
     </div>
 </div>
 
@@ -48,6 +63,7 @@
                         page => Url.Action("Index", new RouteValueDictionary() 
                             {
                                 {"Page" , page},
+                                {"SearchParameters", Model.SearchParameters}
                                 
                             }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
                 </td>
