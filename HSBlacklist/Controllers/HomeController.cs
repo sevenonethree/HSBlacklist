@@ -42,7 +42,7 @@ namespace HSBlacklist.Controllers
         {
             return View(Procurer.Find(x => x.Id == employeeToView));
         }
-        [Authorize]
+
         public ActionResult Edit(int employeeToEdit)
         {
             return View(Procurer.Find(x => x.Id == employeeToEdit));
