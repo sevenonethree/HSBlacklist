@@ -1,4 +1,4 @@
-﻿@model HSBlacklist.Models.Pocos.Employee
+﻿@model HSBlacklist.Models.Employee
 
 @{
     ViewBag.Title = "Details";
@@ -53,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { employeeToEdit = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

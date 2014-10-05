@@ -23,7 +23,7 @@ namespace HSBlacklist.Controllers
         public ActionResult Index(EmployeeSearchViewModel model)
         {
             ViewBag.Title = "Home Page";
-            var page = model.Page == 0 ? 1 : model.Page ;
+            var page = model.Page == 0 ? 1 : model.Page;
             IEnumerable<Employee> resultData = null;
 
             if (!string.IsNullOrEmpty(model.SearchParameters))
@@ -31,18 +31,28 @@ namespace HSBlacklist.Controllers
             else
                 resultData = Procurer.GetData();
 
-                model = new EmployeeSearchViewModel()
-                {
-                    Results = resultData.ToPagedList(page, 25),
-                    SearchParameters = model.SearchParameters
-                };
+            model = new EmployeeSearchViewModel()
+            {
+                Results = resultData.ToPagedList(page, 25),
+                SearchParameters = model.SearchParameters
+            };
 
             return View(model);
         }
 
-        public ActionResult Details(int employeeToEdit)
+        public ActionResult Details(int employeeToView)
+        {
+            return View(Procurer.Find(x => x.Id == employeeToView));
+        }
+
+        public ActionResult Edit(int employeeToEdit)
         {
             return View(Procurer.Find(x => x.Id == employeeToEdit));
+        }
+
+        public ActionResult SaveEmployee(Employee emp)
+        {
+            return (new JsonResult() { Data = new { TextToReturn = "This is a test." } });
         }
     }
 

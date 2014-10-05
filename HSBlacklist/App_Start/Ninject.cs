@@ -1,4 +1,5 @@
-﻿using HSBlacklist.Models.Pocos;
+﻿using HSBlacklist.Models;
+using HSBlacklist.Models.Pocos;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Common;
@@ -75,7 +76,7 @@ namespace Ninject.Mvc
             public override void Load()
             {
                 //TODO: Bind to Concrete Types Here
-                Kernel.Bind<IDataProcurer<Employee>>().To<FileDataProcurer<Employee>>();
+                Kernel.Bind<IDataProcurer<Employee>>().To<SqlDataProcurer>();
             }
         }
 

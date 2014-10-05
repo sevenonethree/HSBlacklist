@@ -20,9 +20,9 @@
                     @Html.EditorFor(m => m.SearchParameters)
                     @Html.ValidationMessageFor(m => m.SearchParameters)
                 </div>
-
+                <br/>
                 <p>
-                    <input name="SearchButton" type="submit" value="Perform Search" />
+                    <input name="SearchButton" type="submit" value="Perform Search" class="btn btn-primary" />
                 </p>
             </fieldset>
         }
@@ -52,7 +52,7 @@
                     <td>@Html.DisplayFor(m => item.Email)</td>
                     <td>@Html.DisplayFor(m => item.Phone)</td>
                     <td>@Html.DisplayFor(m => item.Location)</td>
-                    <td>@Html.ActionLink("View", "Details", new {employeeToEdit= item.Id})</td>
+                    <td>@Html.ActionLink("View", "Details", new {employeeToView= item.Id})</td>
                 </tr>
             }
         </tbody>
