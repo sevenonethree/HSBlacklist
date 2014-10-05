@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using HSBlacklist.Models;
-namespace HSBlacklist.Models.Pocos
+namespace HSBlacklist.Models.DataHandlers
 {
     public class SqlDataProcurer: IDataProcurer<Employee>
     {

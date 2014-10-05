@@ -1,4 +1,4 @@
-﻿using HSBlacklist.Models.Pocos;
+﻿using HSBlacklist.Models.DataHandlers;
 using PagedList;
 using System;
 using System.Collections.Generic;

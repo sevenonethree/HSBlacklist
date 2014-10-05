@@ -6,7 +6,7 @@ using System.Web;
 using Newtonsoft.Json;
 using PagedList;
 
-namespace HSBlacklist.Models.Pocos
+namespace HSBlacklist.Models.DataHandlers
 {
     public class FileDataProcurer<Employee> : IDataProcurer<Employee>
     {

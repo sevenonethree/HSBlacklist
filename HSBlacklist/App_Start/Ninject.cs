@@ -1,5 +1,6 @@
 ﻿using HSBlacklist.Models;
-using HSBlacklist.Models.Pocos;
+using HSBlacklist.Models.Data_Handlers;
+using HSBlacklist.Models.DataHandlers;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Common;
@@ -77,6 +78,7 @@ namespace Ninject.Mvc
             {
                 //TODO: Bind to Concrete Types Here
                 Kernel.Bind<IDataProcurer<Employee>>().To<SqlDataProcurer>();
+                Kernel.Bind<IDataWriter<Employee>>().To<SqlDataWriter>();
             }
         }
 

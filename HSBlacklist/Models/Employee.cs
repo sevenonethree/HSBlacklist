@@ -21,7 +21,7 @@ namespace HSBlacklist.Models
         public string Location { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(100)]
         public string JobTitle { get; set; }
 
         [Required]
@@ -31,5 +31,11 @@ namespace HSBlacklist.Models
         [Required]
         [StringLength(15)]
         public string Phone { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var comparer = obj as Employee;
+            return (this.Email == comparer.Email && this.JobTitle == comparer.JobTitle && this.Id == comparer.Id && this.Location == comparer.Location && this.Name == comparer.Name && this.Phone == comparer.Phone);
+        }
     }
 }

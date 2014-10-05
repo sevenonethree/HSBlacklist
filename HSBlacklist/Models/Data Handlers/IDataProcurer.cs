@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HSBlacklist.Models.Pocos
+namespace HSBlacklist.Models.DataHandlers
 {
     public interface IDataProcurer<T>
     {
