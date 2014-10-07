@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AuthenticationConnection-Web.config Connection String" description="AuthenticationConnection Connection String used in web.config by the application to access the database." defaultValue="data source=na8xurmvqo.database.windows.net,1433;initial catalog=HSBlacklist_auth;user id=sqluser;password=headspring1$;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="c:\\users\\tré\\documents\\visual\ studio\ 2013\\Projects\\HSBlacklist\\HSBlacklist\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AuthenticationConnection']/@connectionString" />
+  </parameter>
+  <parameter name="SqlEntityConnection-Web.config Connection String" description="SqlEntityConnection Connection String used in web.config by the application to access the database." defaultValue="data source=na8xurmvqo.database.windows.net,1433;initial catalog=HSBlacklist_db;user id=sqluser;password=headspring1$;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="c:\\users\\tré\\documents\\visual\ studio\ 2013\\Projects\\HSBlacklist\\HSBlacklist\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SqlEntityConnection']/@connectionString" />
+  </parameter>
+</parameters>

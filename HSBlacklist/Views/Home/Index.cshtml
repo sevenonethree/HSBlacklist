@@ -1,0 +1,84 @@
+﻿@using HSBlacklist.Models;
+@using PagedList.Mvc;
+@model EmployeeSearchViewModel
+
+@Scripts.Render("~/bundles/jquery")
+@*@Scripts.Render("~/Scripts/datatables")*@
+
+<script type="text/javascript" src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js" charset="utf8"></script>
+@Styles.Render("~/Content/datatables")
+
+
+<div class="jumbotron">
+    <h1>Search for an employee</h1>
+    <div class="row">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            @Html.ValidationSummary(false)
+            <fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.SearchParameters)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.SearchParameters)
+                    @Html.ValidationMessageFor(m => m.SearchParameters)
+                </div>
+                <br />
+                <p>
+                    <input name="SearchButton" type="submit" value="Perform Search" class="btn btn-primary" />
+                </p>
+            </fieldset>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <h2>Employee Results</h2>
+    <table class="table table-bordered table-striped" id="employeeTable">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Job Title</td>
+                <td>Email Address</td>
+                <td>Phone</td>
+                <td>Location</td>
+                <td><br /></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Results)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.Name)</td>
+                    <td>@Html.DisplayFor(m => item.JobTitle)</td>
+                    <td>@Html.DisplayFor(m => item.Email)</td>
+                    <td>@Html.DisplayFor(m => item.Phone)</td>
+                    <td>@Html.DisplayFor(m => item.Location)</td>
+                    <td>@Html.ActionLink("View", "Details", new { employeeToView = item.Id })</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    @Html.PagedListPager(Model.Results,
+                        page => Url.Action("Index", new RouteValueDictionary()
+                            {
+                                {"Page" , page},
+                                {"SearchParameters", Model.SearchParameters}
+
+                            }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var employeeTable = $("#employeeTable");
+
+        employeeTable.DataTable();
+    });
+</script>
