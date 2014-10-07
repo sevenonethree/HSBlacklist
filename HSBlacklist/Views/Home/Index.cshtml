@@ -3,10 +3,8 @@
 @model EmployeeSearchViewModel
 
 @Scripts.Render("~/bundles/jquery")
-@*@Scripts.Render("~/Scripts/datatables")*@
-
-<script type="text/javascript" src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js" charset="utf8"></script>
 @Styles.Render("~/Content/datatables")
+@Scripts.Render("~/Scripts/datatables")
 
 
 <div class="jumbotron">
@@ -75,10 +73,9 @@
     </table>
 </div>
 
-<script>
-    $(document).ready(function() {
-        var employeeTable = $("#employeeTable");
-
-        employeeTable.DataTable();
+<script type="text/javascript">
+    $(function() {
+        alert("Done!");
     });
+
 </script>
