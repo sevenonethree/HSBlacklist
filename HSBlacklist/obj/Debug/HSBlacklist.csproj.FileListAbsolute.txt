@@ -1,4 +1,3 @@
-c:\users\tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\obj\Debug\HSBlacklist.csprojResolveAssemblyReference.cache
 c:\users\tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\bin\HSBlacklist.dll.config
 c:\users\tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\bin\HSBlacklist.dll
 c:\users\tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\bin\HSBlacklist.pdb
@@ -61,3 +60,5 @@ c:\users\tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\bin\
 c:\users\tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 c:\users\tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\obj\Debug\HSBlacklist.dll
 c:\users\tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\obj\Debug\HSBlacklist.pdb
+C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\obj\Debug\HSBlacklist.csprojResolveAssemblyReference.cache
+C:\Users\Tré\documents\visual studio 2013\Projects\HSBlacklist\HSBlacklist\bin\Mvc.JQuery.Datatables.dll

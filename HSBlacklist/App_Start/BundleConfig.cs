@@ -27,8 +27,8 @@ namespace HSBlacklist
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/datatables").Include("~/Content/jquery.dataTables.css"));
-            bundles.Add(new ScriptBundle("~/Scripts/datatables").Include("~/Scripts/jquery.dataTables.js"));
+            bundles.Add(new StyleBundle("~/Content/datatables").Include("~/Content/DataTables-1.10.2/jquery.dataTables.css"));
+            bundles.Add(new ScriptBundle("~/Scripts/datatables").Include("~/Scripts/DataTables-1.10.2/jquery.dataTables.js"));
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
             BundleTable.EnableOptimizations = false;

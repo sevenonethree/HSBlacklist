@@ -22,11 +22,9 @@ namespace HSBlacklist.Controllers
 
         public ActionResult Index(EmployeeSearchViewModel model)
         {
-            ViewBag.Title = "Home Page";
-            var page = model.Page == 0 ? 1 : model.Page;
-            var searchParams = model.SearchParameters != null ? model.SearchParameters.ToLower() : null;
-            IEnumerable<Employee> resultData;
-
+            ViewBag.Title = "Employee Search";
+            var searchParams = model.SearchParameters != null ? model.SearchParameters.ToLower() : string.Empty;
+            var pageNumber = model.Page;
             Func<Employee, bool> searchCriteria = (employee) =>
                 employee.Name.ToLower().Contains(searchParams)
                 || employee.Email.ToLower().Contains(searchParams)
@@ -34,14 +32,14 @@ namespace HSBlacklist.Controllers
                 || employee.JobTitle.ToLower().Contains(searchParams);
             
             
-            if (!string.IsNullOrEmpty(searchParams))
-                resultData = Procurer.Search(searchCriteria);
-            else
-                resultData = Procurer.GetData();
-
+            var resultData = !string.IsNullOrEmpty(searchParams) ? Procurer.Search(searchCriteria) : Procurer.GetData();
+            
+            //ToPagedList(page, 25),
             model = new EmployeeSearchViewModel
             {
-                Results = resultData.ToPagedList(page, 25),
+                Page= pageNumber,
+                ResultsCount = resultData.Count(),
+                Results = resultData.Skip(model.Page -1 * model.ReturnCount).Take(model.ReturnCount).ToList(),
                 SearchParameters = model.SearchParameters
             };
 
