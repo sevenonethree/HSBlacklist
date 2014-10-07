@@ -34,6 +34,9 @@ namespace HSBlacklist.Models
 
         public override bool Equals(object obj)
         {
+            if (obj == null)
+                return false;
+
             var comparer = obj as Employee;
             return (this.Email == comparer.Email && 
                 this.JobTitle == comparer.JobTitle && 
